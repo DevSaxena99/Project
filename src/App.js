@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import React, {useEffect,useState} from "react";
+import Country from "./components/country";
+import States from "./components/states";
+import {Route} from "react-router-dom";
+import StateInfo from "./components/stateinfo";
 import './App.css';
-
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+    <Route path="/" exact >
+      <h1>Country</h1>
+        <Country/>
+        <br/><br/>
+      <h1>States</h1>
+        <States/>
+    </Route>
+
+    <Route path="/:state" exact>
+      <StateInfo/>
+    </Route>
     </div>
+
   );
 }
 
